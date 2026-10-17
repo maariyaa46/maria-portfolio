@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maria Qureshi — Power Platform &amp; AI Agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#0A0A0A;
+    --ink-soft:#4A4F57;
+    --ink-faint:#8A8F99;
+    --blue:#1B3A6B;
+    --blue-bright:#2A5CAD;
+    --rule:#E4E6EA;
+    --panel:#FAFAFB;
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html{ scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{ font-family:'Fraunces',serif; }
+  a{ color:var(--blue-bright); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  header{ padding:110px 0 86px; }
+  .kicker{
+    font-size:13px; letter-spacing:0.14em; color:var(--ink-faint);
+    margin-bottom:28px; text-transform:uppercase;
+  }
+  h1{
+    font-family:'Fraunces',serif; font-weight:500; font-style:italic;
+    font-size:clamp(46px,8vw,78px); line-height:1.02; letter-spacing:-0.01em;
+    margin:0; color:var(--ink);
+  }
+  .role{
+    font-size:clamp(18px,2.4vw,21px); color:var(--ink-soft);
+    margin-top:28px; max-width:520px; font-weight:400;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:40px;
+    font-size:14px; color:var(--ink-soft); padding-top:28px; border-top:1px solid var(--rule);
+  }
+  .contact-row a{ color:var(--ink-soft); text-decoration:none; }
+  .contact-row a:hover{ color:var(--blue-bright); }
+  .contact-row span{ color:var(--ink-faint); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:70px 0; border-top:1px solid var(--rule); }
+  .section-label{
+    font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--blue-bright); margin-bottom:22px; font-weight:500;
+  }
+  h2{
+    font-family:'Fraunces',serif; font-weight:500; font-size:30px;
+    margin:0 0 30px; color:var(--ink); letter-spacing:-0.01em;
+  }
+  p.lead{ max-width:600px; color:var(--ink-soft); font-size:17px; line-height:1.75; }
+
+  /* ---------- SKILLS ---------- */
+  .skills{ display:grid; grid-template-columns:140px 1fr; gap:18px 24px; }
+  .skills dt{
+    font-size:13px; letter-spacing:0.04em; color:var(--ink-faint);
+    padding-top:3px;
+  }
+  .skills dd{ margin:0; font-size:15px; color:var(--ink-soft); padding-bottom:18px; border-bottom:1px solid var(--rule); }
+  .skills dt{ padding-bottom:18px; border-bottom:1px solid var(--rule); }
+
+  /* ---------- PROJECTS ---------- */
+  .project{ padding:34px 0; border-bottom:1px solid var(--rule); }
+  .project:first-child{ padding-top:0; }
+  .project-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  .project h3{
+    font-family:'Fraunces',serif; font-weight:500; font-size:22px; margin:0; color:var(--ink);
+  }
+  .project .meta{ font-size:12.5px; letter-spacing:0.04em; color:var(--blue-bright); white-space:nowrap; text-transform:uppercase; }
+  .project p{ color:var(--ink-soft); font-size:15.5px; margin:14px 0 0; max-width:620px; line-height:1.7; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{ padding:28px 0; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:150px 1fr; gap:20px; }
+  .job:first-child{ padding-top:0; }
+  .job:last-child{ border-bottom:none; }
+  .job .when{ color:var(--ink-faint); font-size:13px; padding-top:4px; }
+  .job h3{ font-family:'Fraunces',serif; font-size:18px; font-weight:500; margin:0 0 3px; }
+  .job .where{ color:var(--blue-bright); font-size:13px; margin-bottom:14px; }
+  .job ul{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.5px; }
+  .job li{ margin-bottom:8px; }
+
+  /* ---------- EDU / CERTS ---------- */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .two-col h3{ font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); font-weight:500; margin-bottom:16px; }
+  .two-col ul{ margin:0; padding-left:0; list-style:none; color:var(--ink-soft); font-size:14.5px; }
+  .two-col li{ margin-bottom:12px; padding-left:16px; border-left:2px solid var(--rule); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:80px 0 100px; }
+  footer .big-link{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    font-size:clamp(26px,4.5vw,36px); color:var(--ink); text-decoration:none;
+    display:inline-block; border-bottom:1px solid var(--ink);
+  }
+  footer .sub{ color:var(--ink-faint); font-size:14px; margin-top:18px; }
+
+  @media (max-width:600px){
+    .two-col{ grid-template-columns:1fr; gap:32px; }
+    .job{ grid-template-columns:1fr; gap:4px; }
+    .skills{ grid-template-columns:1fr; }
+    .skills dt{ border-bottom:none; padding-bottom:4px; }
+    .skills dd{ padding-bottom:16px; }
+    header{ padding:72px 0 56px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Multan, Pakistan</div>
+    <h1>Maria Qureshi</h1>
+    <p class="role">Power Platform developer building production AI agents — Copilot Studio, Dataverse, and the automation pipelines that connect them to real business processes.</p>
+    <div class="contact-row">
+      <a href="mailto:mariyaqureshi2920@gmail.com">mariyaqureshi2920@gmail.com</a>
+      <a href="https://linkedin.com/in/mariaqureshi29">linkedin.com/in/mariaqureshi29</a>
+      <span>+92 321 7315211</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-label">Profile</div>
+    <p class="lead">Microsoft Power Platform developer with 2+ years at a global systems integrator, currently building production AI agents in Copilot Studio and custom Dataverse plugins for enterprise clients. Combines low-code delivery — Canvas Apps, Power Automate, Power BI — with C# and Python engineering and Azure DevOps CI/CD, so solutions ship with proper ALM rather than as one-off apps. Microsoft-certified across Power Automate, canvas apps and model-driven apps.</p>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">Core Skills</div>
+    <dl class="skills">
+      <dt>AI &amp; Agents</dt>
+      <dd>Copilot Studio (topics, generative answers, custom actions, knowledge sources), prompt engineering, retrieval over SharePoint/Dataverse, AI Builder, LLM fundamentals</dd>
+      <dt>Power Platform</dt>
+      <dd>Power Apps (Canvas &amp; model-driven), Power Fx, Power Automate, Power BI, Dataverse plugins &amp; security roles, solution ALM</dd>
+      <dt>Engineering</dt>
+      <dd>C#, .NET / ASP.NET MVC, Python (Selenium, Playwright), REST APIs, JSON, SQL, SharePoint</dd>
+      <dt>Cloud &amp; DevOps</dt>
+      <dd>Azure (VMs, VNets, Entra ID, RBAC), Azure DevOps pipelines, CI/CD, Git, Dynamics 365, LCS</dd>
+    </dl>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Projects</div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>SOP-Grounded Copilot Studio Agents</h3>
+        <span class="meta">Copilot Studio</span>
+      </div>
+      <p>Built and deployed two Copilot Studio agents for the internal support team. Each agent's knowledge base is grounded in a specific source — one on D365 reference documentation and links, the other on client SOPs — so users can simply prompt the agent in natural language and get an accurate, source-backed answer instead of searching documents manually. Cut the volume of repetitive questions routed to subject-matter experts.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Multi-Source BI Dashboard</h3>
+        <span class="meta">Power BI</span>
+      </div>
+      <p>Designed a Power BI solution that pulls data from multiple disparate systems into a single pipeline, then visualizes it as an operational, decision-ready dashboard — covering both the data-gathering layer and the reporting layer end to end, used by business stakeholders for day-to-day decisions.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>P1 Email Escalation &amp; Notification System</h3>
+        <span class="meta">Power Automate</span>
+      </div>
+      <p>Built an escalation flow in Power Automate that watches for incoming P1 (priority-one) emails while a user is out of office and immediately sends a loud, high-priority notification so critical issues are never missed. On return, it compiles and returns a consolidated list of every email received, flagging exactly which ones need review first.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Airline Booking App</h3>
+        <span class="meta">Power Apps</span>
+      </div>
+      <p>Designed and built a Canvas App for an airline client, focused on a clean, responsive booking/operations interface — translating business requirements into an intuitive, business-ready user experience.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>D365 Intelligence Feed to Teams</h3>
+        <span class="meta">Power Automate</span>
+      </div>
+      <p>Built a Power Automate flow that gathers data relevant to D365 from all relevant linked sources, then uses AI to summarize and post intelligent, up-to-date status updates directly into Microsoft Teams — keeping the team informed without manually checking each source.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Multi-Source Data Reconciliation</h3>
+        <span class="meta">Python</span>
+      </div>
+      <p>Built a Python automation that reconciles data across different source systems, replacing manual cross-checking and automatically surfacing mismatches for review.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label">Experience</div>
+
+    <div class="job">
+      <div class="when">Feb 2026 – Present</div>
+      <div>
+        <h3>Consultant</h3>
+        <div class="where">Systems Limited, Multan</div>
+        <ul>
+          <li>Built two internal Copilot Studio agents, reducing repetitive questions routed to subject-matter experts</li>
+          <li>Develop custom Dataverse plugins in C# for validation, record processing and cross-entity rules</li>
+          <li>Own Tier-1 environment deployments end-to-end in Lifecycle Services (LCS)</li>
+          <li>Built a CI/CD pipeline in Azure DevOps that standardised the release process</li>
+          <li>Built Power Automate escalation and AI-assisted Teams reporting flows for critical alerts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Mar 2025 – Feb 2026</div>
+      <div>
+        <h3>Junior Consultant</h3>
+        <div class="where">Systems Limited, Multan</div>
+        <ul>
+          <li>Delivered an airline Canvas App, replacing manual and spreadsheet-based processes</li>
+          <li>Developed Power Automate flows for multi-stage approvals, cutting manual work</li>
+          <li>Built the Python reconciliation and browser-automation projects above</li>
+          <li>Recognised as Star Performer 2025 for delivery quality and ownership</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">May 2024 – Mar 2025</div>
+      <div>
+        <h3>Associate Consultant</h3>
+        <div class="where">Systems Limited, Multan</div>
+        <ul>
+          <li>Delivered up to L3 support for Dynamics AX 2012 R3 Retail, resolving 95% of issues within SLA</li>
+          <li>Partnered across development, infrastructure and business teams to keep retail systems stable</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="edu">
+    <div class="section-label">Education &amp; Certifications</div>
+    <div class="two-col">
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>BSc Computer Science — NFC Institute of Engineering &amp; Technology, Multan, Pakistan (2019–2023)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Certifications</h3>
+        <ul>
+          <li>Applied Skills: Automated processes with Power Automate — Jun 2025</li>
+          <li>Applied Skills: Model-driven apps with Power Apps &amp; Dataverse — Mar 2025</li>
+          <li>Applied Skills: Canvas apps with Power Apps — Feb 2025</li>
+          <li>Microsoft Certified: Dynamics 365 Fundamentals (ERP) — Oct 2024</li>
+          <li>Azure DevOps: Build CI/CD Release Pipelines (Udemy) — Jun 2024</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="big-link" href="mailto:mariyaqureshi2920@gmail.com">mariyaqureshi2920@gmail.com</a>
+    <div class="sub">+92 321 7315211 · linkedin.com/in/mariaqureshi29</div>
+  </footer>
+
+</div>
+</body>
+</html>
